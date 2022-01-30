@@ -1,28 +1,30 @@
 {
-    "format_version": 2,
-    "header": {
-        "description": "New Caledonia Border - 0.0.1",
-        "name": "New Caledonia Border",
-        "uuid": "cb04c8ad-429d-4717-8617-bfc8b01d3f22",
-        "version": [
-            0,
-            0,
-            1
-        ],
-        "min_engine_version": [
-            1,
-            16,
-            0
-        ]
-    },
-    "modules": [{
-        "description": "",
-        "type": "data",
-        "uuid": "20cc37e9-73b2-495f-8719-6855a62909c3",
-        "version": [
-            0,
-            0,
-            1
-        ]
-    }]
+  "format_version": 2,
+  "header": {
+    "description": "New Caledonia Border Addon 0.0.17",
+    "name": "New Caledonia Border",
+    "uuid": "cb04c8ad-429d-4717-8617-bfc8b01d3f22",
+    "version": [
+      0,
+      0,
+      "17"
+    ],
+    "min_engine_version": [
+      1,
+      16,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "description": "",
+      "type": "data",
+      "uuid": "20cc37e9-73b2-495f-8719-6855a62909c3",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ]
 }
