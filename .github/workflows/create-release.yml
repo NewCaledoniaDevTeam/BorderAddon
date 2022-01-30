@@ -22,7 +22,7 @@ jobs:
           echo ::set-output name=BUILD_NUMBER::$BUILD_NUMBER
           
       - name: Update manifest version
-        uses: 898anil/github-actions-json-edit@0.2
+        uses: 898anil/github-actions-json-edit@v0.2
         with:
           file_path: borderbp/manifest.json
           field_path: header.version.3
