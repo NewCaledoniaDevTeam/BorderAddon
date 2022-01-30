@@ -66,6 +66,19 @@ jobs:
         with:
           files: borderbp/
           dest: borderbp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcpack
+          
+      - name: Upload .zip badge as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: borderbp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip
+          path: borderbp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip
+          if-no-files-found: error
+      - name: Upload .mcpack badge as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: borderbp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcpack
+          path: borderbp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcpack
+          if-no-files-found: error
                     
       - name: Puts the release on GitHub
         uses: ncipollo/release-action@v1
