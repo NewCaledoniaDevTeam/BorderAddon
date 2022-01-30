@@ -30,7 +30,7 @@ jobs:
         with:
           file: borderbp/manifest.json
           field: header.version.2
-          value: ${{ steps.build-number.outputs.BUILD_NUMBER }}
+          value: ${{github.run_number}}
           
       - name: Update manifest name
         uses: jossef/action-set-json-field@v1
