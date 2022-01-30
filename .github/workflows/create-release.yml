@@ -51,9 +51,9 @@ jobs:
           branch: ${{ steps.extract_branch.outputs.branch }}
       
       - name: Compress Json
-        uses: preactjs/compressed-size-action@v2
-        with:
-          pattern: "./borderbp/**/*.{json}"
+        run: |
+          chmod +x compress-json.sh
+          ./compress-json.sh
 
       - uses: vimtor/action-zip@v1
         with:
