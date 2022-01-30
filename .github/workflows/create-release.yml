@@ -19,6 +19,14 @@ jobs:
           BUILD_NUMBER=$(($GITHUB_RUN_NUMBER)) #to stay above jenkins
           echo "Build number: $BUILD_NUMBER"
           echo ::set-output name=BUILD_NUMBER::$BUILD_NUMBER
+          
+      - name: Update JSON Data
+        id: render-json-data (optional)
+        uses: 898anil/github-actions-json-edit@0.2
+        with:
+          file_path: borderbp/manifest.json
+          field_path: header.version.3
+          field_value: 0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}
       
       - uses: vimtor/action-zip@v1
         with:
