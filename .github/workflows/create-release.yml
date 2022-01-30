@@ -26,7 +26,9 @@ jobs:
           echo ::set-output name=BUILD_NUMBER::$BUILD_NUMBER
       
       - name: Update manfiest verison
-        run: jq '.header.version = [0, 0, ${{github_run_number}}]'
+        run: |
+          sudo apt-get install jq
+          jq '.header.version = [0, 0, ${{ steps.build-number.outputs.BUILD_NUMBER }}]'
           
       - name: Update manifest name
         uses: jossef/action-set-json-field@v1
