@@ -32,6 +32,10 @@ jobs:
           field_path: header.version.3
           field_value: 0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}
           
+      - name: Test
+        run: |
+          echo "$(cat borderbp/manifest.json)"
+          
       - name: manifest update
         run: |
           git add "borderbp/manifest.json"
