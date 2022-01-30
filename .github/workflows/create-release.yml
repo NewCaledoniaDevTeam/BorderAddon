@@ -50,6 +50,11 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ steps.extract_branch.outputs.branch }}
       
+      - name: Compress Json
+        uses: preactjs/compressed-size-action@v2
+        with:
+          pattern: "./borderbp/**/*.{json}"
+
       - uses: vimtor/action-zip@v1
         with:
           files: borderbp/
