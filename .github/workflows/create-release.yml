@@ -16,18 +16,18 @@ jobs:
       - name: Calculate build number
         id: build-number
         run: |
-          BUILD_NUMBER=$((1+$GITHUB_RUN_NUMBER)) #to stay above jenkins
+          BUILD_NUMBER=$(($GITHUB_RUN_NUMBER)) #to stay above jenkins
           echo "Build number: $BUILD_NUMBER"
           echo ::set-output name=BUILD_NUMBER::$BUILD_NUMBER
       
       - uses: vimtor/action-zip@v1
         with:
           files: borderbp/
-          dest: borderbp.zip
+          dest: borderbp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip
       - uses: vimtor/action-zip@v1
         with:
           files: borderbp/
-          dest: borderbp.mcpack
+          dest: borderbp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcpack
           
       - name: Puts the release on GitHub
         uses: ncipollo/release-action@v1
