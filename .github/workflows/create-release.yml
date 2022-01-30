@@ -35,5 +35,5 @@ jobs:
           artifacts: "borderbp.zip, borderbp.mcpack"
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: 0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}
-          name: New Caledonia Border Addon - ${{ steps.build-number.outputs.BUILD_NUMBER }} - ${{ steps.hash.outputs.sha_short }} 
+          name: 0.0.${{ steps.build-number.outputs.BUILD_NUMBER }} New Caledonia Border Addon 
           prerelease: true
