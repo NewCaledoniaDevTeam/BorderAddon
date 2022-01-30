@@ -5,6 +5,7 @@ name: Create Release
       - main
 jobs:
   create-release:
+    name: Create Release
     runs-on: ubuntu-latest
     steps:
       - name: Cancel Previous Runs
@@ -20,8 +21,7 @@ jobs:
           echo "Build number: $BUILD_NUMBER"
           echo ::set-output name=BUILD_NUMBER::$BUILD_NUMBER
           
-      - name: Update JSON Data
-        id: render-json-data (optional)
+      - name: Update manifest version
         uses: 898anil/github-actions-json-edit@0.2
         with:
           file_path: borderbp/manifest.json
