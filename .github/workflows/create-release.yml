@@ -32,11 +32,11 @@ jobs:
           token: ${{secrets.github_token}}
 
       - name: Update manfiest verison behavior
-        run: echo $(cat borderbp/manifest.json | jq '.header.version = [0, 1, ${{ steps.build-number.outputs.build_number }}]') > borderbp/manifest.json
+        run: echo $(cat borderbp/manifest.json | jq '.header.version = [0, 2, ${{ steps.build-number.outputs.build_number }}]') > borderbp/manifest.json
       - name: Update manfiest verison texture
-        run: echo $(cat borderrp/manifest.json | jq '.header.version = [0, 1, ${{ steps.build-number.outputs.build_number }}]') > borderrp/manifest.json
+        run: echo $(cat borderrp/manifest.json | jq '.header.version = [0, 2, ${{ steps.build-number.outputs.build_number }}]') > borderrp/manifest.json
       - name: Update manfiest verison texture within behavior
-        run: echo $(cat borderbp/manifest.json | jq '.dependencies[0].version = [0, 1, ${{ steps.build-number.outputs.build_number }}]') > borderbp/manifest.json
+        run: echo $(cat borderbp/manifest.json | jq '.dependencies[0].version = [0, 2, ${{ steps.build-number.outputs.build_number }}]') > borderbp/manifest.json
 
       - name: Update manifest name behavior
         uses: jossef/action-set-json-field@v1
@@ -123,7 +123,7 @@ jobs:
           dest: border.0.2.${{ steps.build-number.outputs.build_number }}.zip
       - uses: vimtor/action-zip@v1
         with:
-          files: borderbp.0.2.${{ steps.build-number.outputs.build_number }}.mcpack borderrp.0.2.${{ steps.build-number.outputs.build_number }}.mcpack
+          files: borderbp.0.2.${{ steps.build-number.outputs.build_number }}.zip borderrp.0.2.${{ steps.build-number.outputs.build_number }}.zip
           dest: border.0.2.${{ steps.build-number.outputs.build_number }}.mcaddon
       - name: Upload .zip as artifact
         uses: actions/upload-artifact@v2
@@ -141,7 +141,8 @@ jobs:
       - name: Puts the release on GitHub
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "borderbp.0.2.${{ steps.build-number.outputs.build_number }}.zip, borderbp.0.2.${{ steps.build-number.outputs.build_number }}.mcpack, borderrp.0.2.${{ steps.build-number.outputs.build_number }}.zip, borderrp.0.2.${{ steps.build-number.outputs.build_number }}.mcpack, border.0.2.${{ steps.build-number.outputs.build_number }}.zip, border.0.2.${{ steps.build-number.outputs.build_number }}.mcaddon"
+          #artifacts: "borderbp.0.2.${{ steps.build-number.outputs.build_number }}.zip, borderbp.0.2.${{ steps.build-number.outputs.build_number }}.mcpack, borderrp.0.2.${{ steps.build-number.outputs.build_number }}.zip, borderrp.0.2.${{ steps.build-number.outputs.build_number }}.mcpack, border.0.2.${{ steps.build-number.outputs.build_number }}.zip, border.0.2.${{ steps.build-number.outputs.build_number }}.mcaddon"
+          artifacts: "border.0.2.${{ steps.build-number.outputs.build_number }}.zip, border.0.2.${{ steps.build-number.outputs.build_number }}.mcaddon"
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: 0.2.${{ steps.build-number.outputs.build_number }}
           name: 0.2.${{ steps.build-number.outputs.build_number }} New Caledonia Border Addon
