@@ -4,7 +4,7 @@ name: Create Release
     branches:
       - main
 jobs:
-  create-release:
+  create-releas:
     name: Create Release
     runs-on: ubuntu-latest
     steps:
@@ -135,7 +135,7 @@ jobs:
       - name: Puts the release on GitHub
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "borderbp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip, borderbp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcpack, borderrp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip, borderbr.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcpack, border.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip, border.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcaddon"
+          artifacts: "borderbp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip, borderbp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcpack, borderrp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip, borderrp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcpack, border.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip, border.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcaddon"
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: 0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}
           name: 0.0.${{ steps.build-number.outputs.BUILD_NUMBER }} New Caledonia Border Addon
