@@ -1,13 +1,13 @@
 {
   "format_version": 2,
   "header": {
-    "description": "New Caledonia Border Addon 0.0.37",
+    "description": "New Caledonia Border Addon 0.1.38",
     "name": "New Caledonia Border",
     "uuid": "cb04c8ad-429d-4717-8617-bfc8b01d3f22",
     "version": [
       0,
       0,
-      37
+      38
     ],
     "min_engine_version": [
       1,
@@ -33,7 +33,7 @@
       "version": [
         0,
         0,
-        37
+        38
       ]
     }
   ]
