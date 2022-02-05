@@ -60,10 +60,10 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ steps.extract_branch.outputs.branch }}
 
-      #- name: Compress Json
-      #  run: |
-      #    chmod +x compress-json.sh
-      #    ./compress-json.sh
+      - name: Compress Json
+        run: |
+          chmod +x compress-json.sh
+          ./compress-json.sh
 
       # behavior zip
       - uses: vimtor/action-zip@v1
@@ -134,8 +134,8 @@ jobs:
       - name: Puts the release on GitHub
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "borderbp.0.2.${{ steps.build-number.outputs.build_number }}.zip, borderbp.0.2.${{ steps.build-number.outputs.build_number }}.mcpack, borderrp.0.2.${{ steps.build-number.outputs.build_number }}.zip, borderrp.0.2.${{ steps.build-number.outputs.build_number }}.mcpack, border.0.2.${{ steps.build-number.outputs.build_number }}.zip, border.0.2.${{ steps.build-number.outputs.build_number }}.mcaddon"
-          #artifacts: "border.0.2.${{ steps.build-number.outputs.build_number }}.zip, border.0.2.${{ steps.build-number.outputs.build_number }}.mcaddon"
+          #artifacts: "borderbp.0.2.${{ steps.build-number.outputs.build_number }}.zip, borderbp.0.2.${{ steps.build-number.outputs.build_number }}.mcpack, borderrp.0.2.${{ steps.build-number.outputs.build_number }}.zip, borderrp.0.2.${{ steps.build-number.outputs.build_number }}.mcpack, border.0.2.${{ steps.build-number.outputs.build_number }}.zip, border.0.2.${{ steps.build-number.outputs.build_number }}.mcaddon"
+          artifacts: "border.0.2.${{ steps.build-number.outputs.build_number }}.zip, border.0.2.${{ steps.build-number.outputs.build_number }}.mcaddon"
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: 0.2.${{ steps.build-number.outputs.build_number }}
           name: 0.2.${{ steps.build-number.outputs.build_number }} New Caledonia Border Addon
