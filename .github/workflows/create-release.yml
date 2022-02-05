@@ -1,5 +1,5 @@
 name: Create Release
-'on':
+"on":
   push:
     branches:
       - main
@@ -17,29 +17,38 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-      
+
       - name: Calculate build number
         id: build-number
         run: |
           BUILD_NUMBER=$GITHUB_RUN_NUMBER
           echo "Build number: $BUILD_NUMBER"
           echo ::set-output name=BUILD_NUMBER::$BUILD_NUMBER
-      
-      - name: Update manfiest verison
-        run: echo $(cat borderbp/manifest.json | jq '.header.version = [0, 0, ${{ steps.build-number.outputs.BUILD_NUMBER }}]') > borderbp/manifest.json 
-          
-      - name: Update manifest name
+
+      - name: Update manfiest verison behavior
+        run: echo $(cat borderbp/manifest.json | jq '.header.version = [0, 0, ${{ steps.build-number.outputs.BUILD_NUMBER }}]') > borderbp/manifest.json
+      - name: Update manfiest verison texture
+        run: echo $(cat borderrp/manifest.json | jq '.header.version = [0, 0, ${{ steps.build-number.outputs.BUILD_NUMBER }}]') > borderrp/manifest.json
+
+      - name: Update manifest name behavior
         uses: jossef/action-set-json-field@v1
         with:
           file: borderbp/manifest.json
           field: header.description
           value: New Caledonia Border Addon 0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}
-          
+      - name: Update manifest name texture
+        uses: jossef/action-set-json-field@v1
+        with:
+          file: borderrp/manifest.json
+          field: header.description
+          value: New Caledonia Border Addon 0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}
+
       - name: manifest update
         run: |
           git add "borderbp/manifest.json"
+          git add "borderrp/manifest.json"
           git commit -m "0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}"
-      
+
       - name: Extract branch name
         shell: bash
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
@@ -49,7 +58,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ steps.extract_branch.outputs.branch }}
-      
+
       - name: Compress Json
         run: |
           chmod +x compress-json.sh
@@ -57,31 +66,31 @@ jobs:
 
       - uses: vimtor/action-zip@v1
         with:
-          files: borderbp/
-          dest: borderbp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip
+          files: borderbp/, borderrp/
+          dest: border.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip
       - uses: vimtor/action-zip@v1
         with:
-          files: borderbp/
-          dest: borderbp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcpack
-          
-      - name: Upload .zip badge as artifact
+          files: borderbp/, borderrp/
+          dest: border.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcpack
+
+      - name: Upload .zip as artifact
         uses: actions/upload-artifact@v2
         with:
-          name: borderbp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip
-          path: borderbp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip
+          name: border.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip
+          path: border.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip
           if-no-files-found: error
-      - name: Upload .mcpack badge as artifact
+      - name: Upload .mcpack as artifact
         uses: actions/upload-artifact@v2
         with:
-          name: borderbp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcpack
-          path: borderbp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcpack
+          name: border.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcpack
+          path: border.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcpack
           if-no-files-found: error
-                    
+
       - name: Puts the release on GitHub
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "borderbp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip, borderbp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcpack"
+          artifacts: "border.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip, border.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcpack"
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: 0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}
-          name: 0.0.${{ steps.build-number.outputs.BUILD_NUMBER }} New Caledonia Border Addon 
+          name: 0.0.${{ steps.build-number.outputs.BUILD_NUMBER }} New Caledonia Border Addon
           prerelease: true

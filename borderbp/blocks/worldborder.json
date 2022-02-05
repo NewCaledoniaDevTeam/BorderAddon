@@ -1,0 +1,21 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:block": {
+        "description": {
+            "identifier": "worldborder:worldborder"
+        },
+        "components": {
+            "minecraft:block_light_absorption": 0,
+            "minecraft:material_instances": {
+                "*": {
+                    "render_method": "blend",
+                    "texture": "worldborder"
+                }
+            },
+            "minecraft:destroy_time": 20000000,
+            "minecraft:explosion_resistance": 18000000,
+            "minecraft:map_color": "#1B232A",
+            "minecraft:block_light_emission": 1
+        }
+    }
+}
