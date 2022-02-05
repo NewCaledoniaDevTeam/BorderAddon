@@ -66,12 +66,12 @@ jobs:
 
       - uses: vimtor/action-zip@v1
         with:
-          files: borderbp/, borderrp/
+          files: borderbp/ borderrp/
           dest: border.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip
       - uses: vimtor/action-zip@v1
         with:
-          files: borderbp/, borderrp/
-          dest: border.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcpack
+          files: borderbp/ borderrp/
+          dest: border.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcaddon
 
       - name: Upload .zip as artifact
         uses: actions/upload-artifact@v2
@@ -82,14 +82,14 @@ jobs:
       - name: Upload .mcpack as artifact
         uses: actions/upload-artifact@v2
         with:
-          name: border.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcpack
-          path: border.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcpack
+          name: border.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcaddon
+          path: border.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcaddon
           if-no-files-found: error
 
       - name: Puts the release on GitHub
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "border.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip, border.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcpack"
+          artifacts: "border.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip, border.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcaddon"
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: 0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}
           name: 0.0.${{ steps.build-number.outputs.BUILD_NUMBER }} New Caledonia Border Addon
