@@ -1,5 +1,5 @@
 .DS_STORE
-.mcaddon
-.pack
-.zip
-.psd
+*.mcaddon
+*.mcpack
+*.zip
+*.psd
