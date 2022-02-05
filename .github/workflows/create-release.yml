@@ -29,6 +29,8 @@ jobs:
         run: echo $(cat borderbp/manifest.json | jq '.header.version = [0, 0, ${{ steps.build-number.outputs.BUILD_NUMBER }}]') > borderbp/manifest.json
       - name: Update manfiest verison texture
         run: echo $(cat borderrp/manifest.json | jq '.header.version = [0, 0, ${{ steps.build-number.outputs.BUILD_NUMBER }}]') > borderrp/manifest.json
+       - name: Update manfiest verison texture within behavior
+        run: echo $(cat borderbp/manifest.json | jq '.dependencies.0.version = [0, 0, ${{ steps.build-number.outputs.BUILD_NUMBER }}]') > borderbp/manifest.json
 
       - name: Update manifest name behavior
         uses: jossef/action-set-json-field@v1
@@ -64,15 +66,59 @@ jobs:
           chmod +x compress-json.sh
           ./compress-json.sh
 
+      # behavior zip
       - uses: vimtor/action-zip@v1
         with:
-          files: borderbp/ borderrp/
+          files: borderbp/
+          dest: borderbp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip
+      - uses: vimtor/action-zip@v1
+        with:
+          files: borderbp/
+          dest: borderbp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcpack
+      - name: Upload .zip as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: borderbp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip
+          path: borderbp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip
+          if-no-files-found: error
+      - name: Upload .mcpack as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: borderbp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcpack
+          path: borderbp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcpack
+          if-no-files-found: error
+
+      # texture zip
+      - uses: vimtor/action-zip@v1
+        with:
+          files: borderrp/
+          dest: borderrp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip
+      - uses: vimtor/action-zip@v1
+        with:
+          files: borderrp/
+          dest: borderrp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcpack
+      - name: Upload .zip as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: borderrp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip
+          path: borderrp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip
+          if-no-files-found: error
+      - name: Upload .mcpack as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: borderrp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcpack
+          path: borderrp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcpack
+          if-no-files-found: error
+
+      # Compine
+      - uses: vimtor/action-zip@v1
+        with:
+          files: borderbp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip borderrp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip
           dest: border.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip
       - uses: vimtor/action-zip@v1
         with:
-          files: borderbp/ borderrp/
+          files: borderbp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcpack borderrp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcpack
           dest: border.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcaddon
-
       - name: Upload .zip as artifact
         uses: actions/upload-artifact@v2
         with:
@@ -89,7 +135,7 @@ jobs:
       - name: Puts the release on GitHub
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "border.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip, border.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcaddon"
+          artifacts: "borderbp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip, borderbp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcpack, borderrp.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip, borderbr.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcpack, border.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.zip, border.0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}.mcaddon"
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: 0.0.${{ steps.build-number.outputs.BUILD_NUMBER }}
           name: 0.0.${{ steps.build-number.outputs.BUILD_NUMBER }} New Caledonia Border Addon
