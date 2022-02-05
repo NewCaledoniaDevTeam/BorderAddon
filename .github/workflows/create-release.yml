@@ -26,10 +26,10 @@ jobs:
       #    echo ::set-output name=build_number::$build_number
 
       - name: Generate build number
-          id: build-number
-          uses: einaregilsson/build-number@v3 
-          with:
-            token: ${{secrets.github_token}} 
+        id: build-number
+        uses: einaregilsson/build-number@v3 
+        with:
+          token: ${{secrets.github_token}} 
 
       - name: Update manfiest verison behavior
         run: echo $(cat borderbp/manifest.json | jq '.header.version = [0, 1, ${{ steps.build-number.outputs.build_number }}]') > borderbp/manifest.json
