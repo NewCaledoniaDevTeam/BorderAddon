@@ -30,7 +30,7 @@ jobs:
       - name: Update manfiest verison texture
         run: echo $(cat borderrp/manifest.json | jq '.header.version = [0, 0, ${{ steps.build-number.outputs.BUILD_NUMBER }}]') > borderrp/manifest.json
       - name: Update manfiest verison texture within behavior
-        run: echo $(cat borderbp/manifest.json | jq '.dependencies.0.version = [0, 0, ${{ steps.build-number.outputs.BUILD_NUMBER }}]') > borderbp/manifest.json
+        run: echo $(cat borderbp/manifest.json | jq '.dependencies[0].version = [0, 0, ${{ steps.build-number.outputs.BUILD_NUMBER }}]') > borderbp/manifest.json
 
       - name: Update manifest name behavior
         uses: jossef/action-set-json-field@v1
