@@ -4,7 +4,7 @@ name: Create Release
     branches:
       - main
 jobs:
-  create-releas:
+  create-release:
     name: Create Release
     runs-on: ubuntu-latest
     steps:
