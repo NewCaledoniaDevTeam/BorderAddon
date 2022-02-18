@@ -25,46 +25,54 @@ execute @s ~ ~ ~ effect @s[z=4900, dz=999999, y=250, dy=999999] slow_falling 35 
 execute @s ~ ~ ~ effect @s[z=-4900, dz=999999, y=250, dy=999999] slow_falling 35 0 true
 
 # Barriers
-execute @s[z=-5001, dz=9986, scores={WorldBorder=20}] ~ ~ ~ fill -5001 0 ~ -5001 127 ~16 barrier
-execute @s[z=5001, dz=-9986, scores={WorldBorder=20}] ~ ~ ~ fill -5001 0 ~ -5001 127 ~-16 barrier
-execute @s[z=-5001, dz=9986, scores={WorldBorder=20}] ~ ~ ~ fill 5001 0 ~ 5001 127 ~16 barrier
-execute @s[z=5001, dz=-9986, scores={WorldBorder=20}] ~ ~ ~ fill 5001 0 ~ 5001 127 ~-16 barrier
+execute @s[z=-5000, dz=9986, scores={WorldBorder=20}] ~ ~ ~ fill -5000 0 ~ -5000 127 ~16 barrier
+execute @s[z=5000, dz=-9986, scores={WorldBorder=20}] ~ ~ ~ fill -5000 0 ~ -5000 127 ~-16 barrier
+execute @s[z=-5000, dz=9986, scores={WorldBorder=20}] ~ ~ ~ fill 5000 0 ~ 5000 127 ~16 barrier
+execute @s[z=5000, dz=-9986, scores={WorldBorder=20}] ~ ~ ~ fill 5000 0 ~ 5000 127 ~-16 barrier
 
-execute @s[x=-5001, dx=9986, scores={WorldBorder=20}] ~ ~ ~ fill ~ 0 -5001 ~16 127 -5001 barrier
-execute @s[x=5001, dx=-9986, scores={WorldBorder=20}] ~ ~ ~ fill ~ 0 -5001 ~-16 127 -5001 barrier
-execute @s[x=-5001, dx=9986, scores={WorldBorder=20}] ~ ~ ~ fill ~ 0 5001 ~16 127 5001 barrier
-execute @s[x=5001, dx=-9986, scores={WorldBorder=20}] ~ ~ ~ fill ~ 0 5001 ~-16 127 5001 barrier
+execute @s[x=-5000, dx=9986, scores={WorldBorder=20}] ~ ~ ~ fill ~ 0 -5000 ~16 127 -5000 barrier
+execute @s[x=5000, dx=-9986, scores={WorldBorder=20}] ~ ~ ~ fill ~ 0 -5000 ~-16 127 -5000 barrier
+execute @s[x=-5000, dx=9986, scores={WorldBorder=20}] ~ ~ ~ fill ~ 0 5000 ~16 127 5000 barrier
+execute @s[x=5000, dx=-9986, scores={WorldBorder=20}] ~ ~ ~ fill ~ 0 5000 ~-16 127 5000 barrier
 
-execute @s[z=-5001, dz=9986, scores={WorldBorder=20}] ~ ~ ~ fill -5001 128 ~ -5001 255 ~16 barrier
-execute @s[z=5001, dz=-9986, scores={WorldBorder=20}] ~ ~ ~ fill -5001 128 ~ -5001 255 ~-16 barrier
-execute @s[z=-5001, dz=9986, scores={WorldBorder=20}] ~ ~ ~ fill 5001 128 ~ 5001 255 ~16 barrier
-execute @s[z=5001, dz=-9986, scores={WorldBorder=20}] ~ ~ ~ fill 5001 128 ~ 5001 255 ~-16 barrier
+execute @s[z=-5000, dz=9986, scores={WorldBorder=20}] ~ ~ ~ fill -5000 128 ~ -5000 255 ~16 barrier
+execute @s[z=5000, dz=-9986, scores={WorldBorder=20}] ~ ~ ~ fill -5000 128 ~ -5000 255 ~-16 barrier
+execute @s[z=-5000, dz=9986, scores={WorldBorder=20}] ~ ~ ~ fill 5000 128 ~ 5000 255 ~16 barrier
+execute @s[z=5000, dz=-9986, scores={WorldBorder=20}] ~ ~ ~ fill 5000 128 ~ 5000 255 ~-16 barrier
 
-execute @s[x=-5001, dx=9986, scores={WorldBorder=20}] ~ ~ ~ fill ~ 128 -5001 ~16 255 -5001 barrier
-execute @s[x=5001, dx=-9986, scores={WorldBorder=20}] ~ ~ ~ fill ~ 128 -5001 ~-16 255 -5001 barrier
-execute @s[x=-5001, dx=9986, scores={WorldBorder=20}] ~ ~ ~ fill ~ 128 5001 ~16 255 5001 barrier
-execute @s[x=5001, dx=-9986, scores={WorldBorder=20}] ~ ~ ~ fill ~ 128 5001 ~-16 255 5001 barrier
+execute @s[x=-5000, dx=9986, scores={WorldBorder=20}] ~ ~ ~ fill ~ 128 -5000 ~16 255 -5000 barrier
+execute @s[x=5000, dx=-9986, scores={WorldBorder=20}] ~ ~ ~ fill ~ 128 -5000 ~-16 255 -5000 barrier
+execute @s[x=-5000, dx=9986, scores={WorldBorder=20}] ~ ~ ~ fill ~ 128 5000 ~16 255 5000 barrier
+execute @s[x=5000, dx=-9986, scores={WorldBorder=20}] ~ ~ ~ fill ~ 128 5000 ~-16 255 5000 barrier
 
-# Blue Stained Glass
-execute @s[z=-5000, dz=9984, scores={WorldBorder=20}] ~ ~ ~ fill -5000 0 ~ -5000 127 ~16 worldborder:worldborder
-execute @s[z=5000, dz=-9984, scores={WorldBorder=20}] ~ ~ ~ fill -5000 0 ~ -5000 127 ~-16 worldborder:worldborder
-execute @s[z=-5000, dz=9984, scores={WorldBorder=20}] ~ ~ ~ fill 5000 0 ~ 5000 127 ~16 worldborder:worldborder
-execute @s[z=5000, dz=-9984, scores={WorldBorder=20}] ~ ~ ~ fill 5000 0 ~ 5000 127 ~-16 worldborder:worldborder
+# Worldborder Block
+execute @s[z=-5002, dz=9984, scores={WorldBorder=20}] ~ ~ ~ fill -5001 0 ~ -5001 127 ~16 worldborder:worldborder
+execute @s[z=5002, dz=-9984, scores={WorldBorder=20}] ~ ~ ~ fill -5001 0 ~ -5001 127 ~-16 worldborder:worldborder
+execute @s[z=-5002, dz=9984, scores={WorldBorder=20}] ~ ~ ~ fill 5001 0 ~ 5001 127 ~16 worldborder:worldborder
+execute @s[z=5002, dz=-9984, scores={WorldBorder=20}] ~ ~ ~ fill 5001 0 ~ 5001 127 ~-16 worldborder:worldborder
 
-execute @s[x=-5000, dx=9984, scores={WorldBorder=20}] ~ ~ ~ fill ~ 0 -5000 ~16 127 -5000 worldborder:worldborder
-execute @s[x=5000, dx=-9984, scores={WorldBorder=20}] ~ ~ ~ fill ~ 0 -5000 ~-16 127 -5000 worldborder:worldborder
-execute @s[x=-5000, dx=9984, scores={WorldBorder=20}] ~ ~ ~ fill ~ 0 5000 ~16 127 5000 worldborder:worldborder
-execute @s[x=5000, dx=-9984, scores={WorldBorder=20}] ~ ~ ~ fill ~ 0 5000 ~-16 127 5000 worldborder:worldborder
+execute @s[x=-5002, dx=9984, scores={WorldBorder=20}] ~ ~ ~ fill ~ 0 -5001 ~16 127 -5001 worldborder:worldborder
+execute @s[x=5002, dx=-9984, scores={WorldBorder=20}] ~ ~ ~ fill ~ 0 -5001 ~-16 127 -5001 worldborder:worldborder
+execute @s[x=-5002, dx=9984, scores={WorldBorder=20}] ~ ~ ~ fill ~ 0 5001 ~16 127 5001 worldborder:worldborder
+execute @s[x=5002, dx=-9984, scores={WorldBorder=20}] ~ ~ ~ fill ~ 0 5001 ~-16 127 5001 worldborder:worldborder
 
-execute @s[z=-5000, dz=9984, scores={WorldBorder=20}] ~ ~ ~ fill -5000 128 ~ -5000 255 ~16 worldborder:worldborder
-execute @s[z=5000, dz=-9984, scores={WorldBorder=20}] ~ ~ ~ fill -5000 128 ~ -5000 255 ~-16 worldborder:worldborder
-execute @s[z=-5000, dz=9984, scores={WorldBorder=20}] ~ ~ ~ fill 5000 128 ~ 5000 255 ~16 worldborder:worldborder
-execute @s[z=5000, dz=-9984, scores={WorldBorder=20}] ~ ~ ~ fill 5000 128 ~ 5000 255 ~-16 worldborder:worldborder
+execute @s[z=-5002, dz=9984, scores={WorldBorder=20}] ~ ~ ~ fill -5001 128 ~ -5001 255 ~16 worldborder:worldborder
+execute @s[z=5002, dz=-9984, scores={WorldBorder=20}] ~ ~ ~ fill -5001 128 ~ -5001 255 ~-16 worldborder:worldborder
+execute @s[z=-5002, dz=9984, scores={WorldBorder=20}] ~ ~ ~ fill 5001 128 ~ 5001 255 ~16 worldborder:worldborder
+execute @s[z=5002, dz=-9984, scores={WorldBorder=20}] ~ ~ ~ fill 5001 128 ~ 5001 255 ~-16 worldborder:worldborder
 
-execute @s[x=-5000, dx=9984, scores={WorldBorder=20}] ~ ~ ~ fill ~ 128 -5000 ~16 255 -5000 worldborder:worldborder
-execute @s[x=5000, dx=-9984, scores={WorldBorder=20}] ~ ~ ~ fill ~ 128 -5000 ~-16 255 -5000 worldborder:worldborder
-execute @s[x=-5000, dx=9984, scores={WorldBorder=20}] ~ ~ ~ fill ~ 128 5000 ~16 255 5000 worldborder:worldborder
-execute @s[x=5000, dx=-9984, scores={WorldBorder=20}] ~ ~ ~ fill ~ 128 5000 ~-16 255 5000 worldborder:worldborder
+execute @s[x=-5002, dx=9984, scores={WorldBorder=20}] ~ ~ ~ fill ~ 128 -5001 ~16 255 -5001 worldborder:worldborder
+execute @s[x=5002, dx=-9984, scores={WorldBorder=20}] ~ ~ ~ fill ~ 128 -5001 ~-16 255 -5001 worldborder:worldborder
+execute @s[x=-5002, dx=9984, scores={WorldBorder=20}] ~ ~ ~ fill ~ 128 5001 ~16 255 5001 worldborder:worldborder
+execute @s[x=5002, dx=-9984, scores={WorldBorder=20}] ~ ~ ~ fill ~ 128 5001 ~-16 255 5001 worldborder:worldborder
+
+# Corners
+# TODO +,+
+# TODO -,+
+# TODO +,-
+# TODO -,-
+fill 5001 0 5000 5000 255 5000 worldborder:worldborder
+fill 5001 0 5000 5000 256 5000 barrier
 
 # Glass for y
 # execute @s[z=-4900, dz=9984, scores={WorldBorder=20}] ~ ~ ~ fill -4900 255 ~ -4999 255 -4999 worldborder:worldborder
