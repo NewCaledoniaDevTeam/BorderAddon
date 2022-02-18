@@ -36,13 +36,13 @@ jobs:
         with:
           file: borderbp/manifest.json
           field: header.description
-          value: New Caledonia Border Addon 0.2.${{ steps.build-number.outputs.build_number }}
+          value: New Caledonia Border Addon 0.2.${{ steps.build-number.outputs.build_number }} - MUST ENABLE BOTH Molang and Holiday
       - name: Update manifest name texture
         uses: jossef/action-set-json-field@v1
         with:
           file: borderrp/manifest.json
           field: header.description
-          value: New Caledonia Border Addon 0.2.${{ steps.build-number.outputs.build_number }}
+          value: New Caledonia Border Addon 0.2.${{ steps.build-number.outputs.build_number }} - MUST ENABLE BOTH Molang and Holiday
 
       - name: manifest update
         run: |
